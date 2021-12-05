@@ -1,7 +1,10 @@
 package com.example.demo.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name="user", schema="doctorprotein")
 public class UserEntity {

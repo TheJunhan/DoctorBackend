@@ -10,10 +10,8 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public boolean register(String email, String password)
-    {
-        if(userRepository.findByEmail(email) != null)
-        {
+    public boolean register(String email, String password) {
+        if(userRepository.findByEmail(email) != null) {
             return false;
         }
         UserEntity userEntity = new UserEntity(email, password);
@@ -21,13 +19,11 @@ public class UserService {
         return true;
     }
 
-    public boolean login(String email, String password)
-    {
-        UserEntity userEntity;
-        if((userEntity = userRepository.findByEmail(email)) == null)
-        {
-            return false;
-        }
-        return userEntity.judgeEqual(email, password);
+    public int login(String email, String password) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        System.out.println(userEntity);
+        if(userEntity == null)
+            return -1;
+        return userEntity.judgeEqual(email, password) ? userEntity.getId() : -1;
     }
 }

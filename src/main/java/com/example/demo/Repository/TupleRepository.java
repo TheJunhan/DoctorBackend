@@ -13,26 +13,10 @@ public interface TupleRepository extends JpaRepository<TupleEntity, Integer> {
     TupleEntity[] getAllData();
 
     @Nullable
-    @Query(value = "select * from tuple where tuple.fixed_id=?1", nativeQuery = true)
+    @Query(value = "select * from tuple where userId = ?1", nativeQuery = true)
+    TupleEntity[] getAllByUserId(Integer userId);
+
+    @Nullable
+    @Query(value = "select * from tuple where tuple.fixedId=?1", nativeQuery = true)
     TupleEntity[] getByFixedId(Integer fixid);
-    // new
-    @Nullable
-    @Query(value = "select * from tuple where tuple.mutationLocation=?1", nativeQuery = true)
-    TupleEntity[] getByMutationLocation(String fixid);
-
-    @Nullable
-    @Query(value = "select * from tuple where tuple.ill_type like ?1", nativeQuery = true)
-    TupleEntity[] getByIllType(String fixid);
-
-    @Nullable
-    @Query(value = "select * from tuple where tuple.mutation_type like ?1", nativeQuery = true)
-    TupleEntity[] getByMutationType(String type);
-
-    @Nullable
-    @Query(value = "select * from tuple where tuple.amino_acid like ?1", nativeQuery = true)
-    TupleEntity[] getByAminoAcid(String type);
-
-    @Nullable
-    @Query(value = "select * from tuple where tuple.nucleotide like ?1", nativeQuery = true)
-    TupleEntity[] getByNucleotide(String type);
 }

@@ -14,50 +14,53 @@ public class TupleEntity {
     @Column
     private Integer id;
 
-    @Column
+    @Column(name = "userId")
+    Integer userId;
+
+    @Column(name = "fixedId")
     private Integer fixedId;
-    @Column
+
+    @Column(name = "MutationLocation")
     private String MutationLocation;
-    @Column
+    @Column(name = "illType")
     public String illType;
-    @Column
+    @Column(name = "MutationType")
     private String MutationType;
-    @Column
+    @Column(name = "Genotype")
+    private String Genotype;
+    @Column(name = "Region")
+    private String Region;
+    @Column(name = "Nucleotide")
     private String Nucleotide;
-    @Column
+    @Column(name = "aminoAcid")
     private String aminoAcid;
     // 生理指标
-    @Column
+    @Column(name = "Aptt")
     private String Aptt;
-    @Column
+    @Column(name = "VWFAg")
     private String VWFAg;
-    @Column
+    @Column(name = "VWFAct")
     private String VWFAct;
-    @Column
+    @Column(name = "RIPA")
     private String RIPA;
-    @Column
+    @Column(name = "FVIII")
     private String FVIII;
-    @Column
+    @Column(name = "VWFCB")
     private String VWFCB;
-    @Column
+    @Column(name = "VWFPP")
     private String VWFPP;
-    @Column
+    @Column(name = "BloodType")
     private String BloodType;
-    @Column
+    @Column(name = "age")
     private String age;
-    @Column
+    @Column(name = "gender")
     private String gender;
-    @Column
+    @Column(name = "BS")
     private String BS;
-    @Column
+    @Column(name = "Reference")
     private String Reference;
-    @Column
+    @Column(name = "Comments")
     private String Comments;
-
-    @Column
-    private String Genotype;
-    @Column
-    private String Region;
 
     public void Parse(JSONObject jsonObject)
     {
@@ -81,5 +84,6 @@ public class TupleEntity {
         BS = jsonObject.getString("BS");
         Reference = jsonObject.getString("Reference");
         Comments = jsonObject.getString("Comments");
+        userId = jsonObject.getInt("userId");
     }
 }

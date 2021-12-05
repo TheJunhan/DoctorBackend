@@ -25,10 +25,11 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    boolean login(String email, String password)
+    int login(String email, String password)
     {
         if(password.length() == 0 || email.length() == 0)
-            return false;
-        return userService.login(email, password);
+            return -1;
+        int tmp = userService.login(email, password);
+        return tmp;
     }
 }
