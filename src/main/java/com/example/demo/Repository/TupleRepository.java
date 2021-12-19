@@ -1,6 +1,7 @@
 package com.example.demo.Repository;
 
 import com.example.demo.Entity.TupleEntity;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.Nullable;
@@ -19,4 +20,7 @@ public interface TupleRepository extends JpaRepository<TupleEntity, Integer> {
     @Nullable
     @Query(value = "select * from tuple where tuple.fixedId=?1", nativeQuery = true)
     TupleEntity[] getByFixedId(Integer fixid);
+
+    @Nullable
+    List<TupleEntity> findAll(Specification<TupleEntity> spec);
 }

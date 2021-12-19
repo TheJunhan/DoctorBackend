@@ -28,5 +28,8 @@ create table if not exists `tuple`(
 create table if not exists `user` (
     id int unsigned auto_increment primary key ,
     email varchar(32),
-    password varchar(64)
+    password varchar(64),
+    role varchar(32)
 );
+
+insert ignore into `user` (id, email, password, role) VALUES (1, 'admin@willebrand.com', '123456', 'ADMIN');

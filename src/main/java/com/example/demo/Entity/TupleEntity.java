@@ -1,5 +1,7 @@
 package com.example.demo.Entity;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.json.JSONObject;
 
@@ -20,45 +22,91 @@ public class TupleEntity {
     @Column(name = "fixedId")
     private Integer fixedId;
 
+    @ExcelProperty("Mutation Location")
     @Column(name = "MutationLocation")
     private String MutationLocation;
+
+    @ExcelProperty("VWD type")
     @Column(name = "illType")
     public String illType;
+
+    @ExcelProperty("Mutation type")
     @Column(name = "MutationType")
     private String MutationType;
+
+    @ExcelProperty("GenoType")
     @Column(name = "Genotype")
     private String Genotype;
+
+    @ExcelProperty("Exon No.")
     @Column(name = "Region")
     private String Region;
+
+    @ExcelProperty("Nucleotide change")
     @Column(name = "Nucleotide")
     private String Nucleotide;
+
+    @ExcelProperty("Protein primary structure changes")
     @Column(name = "aminoAcid")
     private String aminoAcid;
+
     // 生理指标
+    @ExcelProperty("activated partial thromboplastin time")
     @Column(name = "Aptt")
     private String Aptt;
+
+    @ExcelProperty("VWF antigen level")
+    @JsonProperty("VWFAg")
     @Column(name = "VWFAg")
     private String VWFAg;
+
+    @ExcelProperty("VWF activity level")
+    @JsonProperty("VWFAct")
     @Column(name = "VWFAct")
     private String VWFAct;
+
+    @ExcelProperty("ristocetin-induced platelet agglutination")
+    @JsonProperty("RIPA")
     @Column(name = "RIPA")
     private String RIPA;
+
+    @ExcelProperty("The activity level of FVIII")
+    @JsonProperty("FVIII")
     @Column(name = "FVIII")
     private String FVIII;
+
+    @ExcelProperty("VWF collagen binding capacity")
+    @JsonProperty("VWFCB")
     @Column(name = "VWFCB")
     private String VWFCB;
+
+    @ExcelProperty("VWF propeptide level")
+    @JsonProperty("VWFPP")
     @Column(name = "VWFPP")
     private String VWFPP;
+
+    @ExcelProperty("Blood type")
     @Column(name = "BloodType")
     private String BloodType;
+
+    @ExcelProperty("Age")
     @Column(name = "age")
     private String age;
+
+    @ExcelProperty("Gender")
     @Column(name = "gender")
     private String gender;
+
+    @ExcelProperty("Bleeding time")
+    @JsonProperty("BS")
     @Column(name = "BS")
     private String BS;
+
+    @ExcelProperty("References")
     @Column(name = "Reference")
     private String Reference;
+
+    @ExcelProperty("Comments")
     @Column(name = "Comments")
     private String Comments;
 

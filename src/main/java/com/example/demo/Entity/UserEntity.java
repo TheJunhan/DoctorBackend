@@ -19,8 +19,11 @@ public class UserEntity {
     @Column
     private String password;
 
-    public UserEntity(String e, String p)
-    {
+    @Column
+    @Enumerated(EnumType.STRING)
+    private UserRole role = UserRole.USER;
+
+    public UserEntity(String e, String p) {
         email = e;
         password = p;
     }
@@ -28,8 +31,11 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public boolean judgeEqual(String e, String p)
-    {
+    public boolean judgeEqual(String e, String p) {
         return e.equals(email) && p.equals(password);
+    }
+
+    public enum UserRole {
+        USER, ADMIN, BANNED
     }
 }
